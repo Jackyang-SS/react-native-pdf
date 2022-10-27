@@ -417,17 +417,7 @@ export default class Pdf extends Component {
             return (
                 <View style={[this.props.style, { overflow: 'hidden' }]}>
                     {!this.state.isDownloaded ? (
-                        <View style={styles.progressContainer}>
-                            {this.props.renderActivityIndicator ? (
-                                this.props.renderActivityIndicator(
-                                    this.state.progress
-                                )
-                            ) : (
-                                <Text>{`${(this.state.progress * 100).toFixed(
-                                    2
-                                )}%`}</Text>
-                            )}
-                        </View>
+                        <View style={styles.progressContainer} />
                     ) : Platform.OS === 'android' ||
                       Platform.OS === 'windows' ? (
                         <PdfCustom
