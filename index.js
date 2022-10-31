@@ -432,15 +432,19 @@ export default class Pdf extends Component {
                         />
                     ) : this.props.usePDFKit &&
                       this.state.isSupportPDFKit === 1 ? (
-                        <PdfCustom
-                            ref={(component) => (this._root = component)}
+                        <PdfView
                             {...this.props}
                             style={[
                                 { backgroundColor: '#EEE', overflow: 'hidden' },
                                 this.props.style,
                             ]}
                             path={this.state.path}
-                            onChange={this._onChange}
+                            onLoadComplete={this.props.onLoadComplete}
+                            onPageChanged={this.props.onPageChanged}
+                            onError={this._onError}
+                            onPageSingleTap={this.props.onPageSingleTap}
+                            onScaleChanged={this.props.onScaleChanged}
+                            onPressLink={this.props.onPressLink}
                         />
                     ) : (
                         <PdfView
